@@ -19,7 +19,7 @@ if [[ -f "$TRANSCRIPT_PATH" ]]; then
         select(.type == "user") |
         select(.message.content | type == "string") |
         select(.message.content | startswith("<") | not) |
-        .message.content
+        "- " + .message.content
     ' "$TRANSCRIPT_PATH" 2>/dev/null > "$EXPORT_DIR/prompts-${TIMESTAMP}.txt"
 
     # Count exported prompts
