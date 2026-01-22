@@ -1,0 +1,24 @@
+{
+  "name": "claude-vocab",
+  "version": "1.0.0",
+  "description": "Auto-export and parse your Claude Code conversation transcripts. Extracts only user prompts from sessions.",
+  "author": {
+    "name": "tmdgusya",
+    "url": "https://github.com/tmdgusya"
+  },
+  "repository": "https://github.com/tmdgusya/claude-vocab",
+  "license": "MIT",
+  "hooks": {
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/export-transcript.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "commands": ["./commands/"]
+}
